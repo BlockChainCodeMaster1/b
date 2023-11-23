@@ -1,0 +1,230 @@
+.header{
+    .inner{
+        width: 1280px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        .nav{
+            font-family: 'Play';
+            li{
+                color: #291A3D;
+                display: inline-block;
+                padding: 0 30px;
+                cursor: pointer;
+                position: relative;
+                &::after{
+                    content: "";
+                    background: #ffb800;
+                    position: absolute;
+                    width: 0px;
+                    height: 2px;
+                    left: 50%;
+                    margin-left: 0px;
+                    bottom: -4px;
+                    transition: all .2s ease-in-out;
+                }
+                &:hover,&.active{
+                    color: #F5C45F;
+                    &::after {
+                        width: 20px;
+                        margin-left: -10px;
+                    }
+                }
+            }
+        }
+        .logo{
+            background: url(../public/layout/logo.svg) no-repeat center/100% auto;
+            width: 200px;
+            height: 50px;
+            display: inline-block;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+        .settings{
+            display: flex;
+            .wallet{
+                margin-left: 10px;
+                border: none;
+                .wallet_inner{
+                    position: relative;
+                    &:hover{
+                        ul{
+                            display: block;
+                        }
+                    }
+                    ul{
+                        display: none;
+                        position: absolute;
+                        padding: 10px 0;
+                        margin-top: -10px;
+                        z-index: 999;
+                        li{
+                            margin: 5px 0;
+                            border-radius: 20px;
+                            &:hover{
+                                button{
+                                    background: #ff9500;
+                                }
+                            }
+                        }
+                    }
+                }
+                button {
+                    border: none;
+                    background: transparent;
+                    background: #FFB800;
+                    color: #fff;
+                    padding: 10px 15px;
+                    width: 170px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    cursor: pointer;
+                    border-radius: 20px;
+                }
+            }
+        }
+    }
+}
+
+.footer{
+    background: #ECEEF1;
+    margin-top: -24px;
+    padding-top: 40px;
+    .inner{
+        max-width: 1440px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+        height: 308px;
+        .left{
+            font-size: 18px;
+            color: #383838;
+
+            p{
+                margin-left: 40px;
+                padding: 3px 0;
+                &:nth-child(2) {
+                    opacity: 0.5;
+                }
+            }
+        }
+        .logo{
+            background: url(../public/layout/botlogo.svg);
+            width: 169px;
+            height: 32px;
+            margin-bottom: 20px;
+        }
+        .right{
+
+            display: flex;
+            .social {
+                margin-right: 20px;
+            }
+            .navs{
+                display: flex;
+                >div{
+                    margin-right: 40px;
+                    display: flex;
+                    flex-direction: column;
+                    color: #291A3D;
+                    font-size: 18px;
+                    a{
+                        margin-bottom: 5px;
+                        text-decoration: none;
+                    }
+                }
+            }
+            .title{
+                color: #FFB800;
+                margin-bottom: 20px;
+                font-weight: 700;
+                font-size: 18px;
+            }
+        }
+        ul{
+            text-align: center;
+            li{
+                display: inline-block;
+                width: 50px;
+                height: 50px;
+                margin: 0 10px;
+                &.tg{
+                    background: url(../public/layout/tele.svg) no-repeat center/100% auto;
+                    width: 26px;
+                    height: 23px;
+                }
+                &.tw{
+                    background: url(../public/layout/tw.svg) no-repeat center/100% auto;
+                    width: 29px;
+                    height: 26px;
+                }
+                &.dc{
+                    background: url(../public/layout/dc.svg) no-repeat center/100% auto;
+                }
+                &.gb{
+                    background: url(../public/layout/git.svg) no-repeat center/100% auto;
+                    width: 29px;
+                    height: 25px;
+                }
+                &.md{
+                    background: url(../public/layout/meta.svg) no-repeat center/100% auto;
+                    width: 29px;
+                    height: 23px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .header {
+            .inner {
+                width: 100%;
+                padding: 5px 20px;
+                .logo {
+                    background: url(../public/layout/logo_mini.png) no-repeat center/ 100% auto;
+                    width: 50px;
+                    height: 50px;
+                }
+    
+                .settings {
+                    .link {
+                        display: none;
+                    }
+                    .wallet{
+                        button{
+                            border: 1px solid #ffb800;
+                            background: transparent;
+                            color: #fff;
+                            padding: 10px 10px;
+                            width: 140px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            cursor: pointer;
+                            margin-left: 5px;
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+        }
+    
+        .footer {
+            .inner {
+                padding: 10px 0;
+                ul {
+                    text-align: center;
+                    li {
+                        display: inline-block;
+                        width: 50px;
+                        height: 50px;
+                        margin: 0 10px;
+                        
+                    }
+                }
+            }
+        }
+}
