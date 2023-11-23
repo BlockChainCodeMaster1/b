@@ -786,7 +786,9 @@ const LaunchpadDetails = () => {
                 </p>
                 <div className={styles.title}>IDO - 50%</div>
                 <div className={styles.title}>Team - 10%</div>
+                <p>Lockup for 6 months since TGE, then start unlocking after 6 months, with 5% unlocked each month.</p>
                 <div className={styles.title}>Ecosystem - 35%</div>
+                <p>Lockup for 6 months since TGE, then start unlocking after 6 months, with 5% unlocked each month.</p>
                 <div className={styles.title}>Cross-Chain Reserve - 5%</div>
               </div>
             </div>
