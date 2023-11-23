@@ -771,7 +771,7 @@ const LaunchpadDetails = () => {
               <div className={styles.item}>
                 <div className={styles.title}>Introduction of project advantages</div>
                 <p>
-                1、Multi-Protocol Support: It integrates various Bitcoin protocols, enhancing accessibility and vastly enriching users' trading options.
+                1、Multi-Protocol Support: It integrates various Bitcoin protocols, enhancing accessibility and vastly enriching users&apos; trading options.
 
 2、Advanced Trading Engine: The platform utilizes Automated Market Maker (AMM) models and liquidity pools, significantly increasing the efficiency and liquidity of asset trades.
 
