@@ -148,32 +148,30 @@ const LaunchpadDetails = () => {
 
   const wallet = [
     '',
-    'bc1pxa38vgrjdrz4msxc64rkh6hs7hz8rkapmh35q7hvevvp25prxrlsa64kze',
-    'bc1pm4e4ndufx4dy3hvnpkj24rkdepeul9wc2tzkec59r5s0fh7ppxtsx2n548'
+    'bc1pnstt80m6mdhj2nfm6qcrl9czeq8rj5h9k4skwecg52u0kpdrqq8s7h22jh',
+    'bc1p678q88ge7f2cgznw2t8ray4cvhvz9yhvpqkv3nw3509zvpry0xlq5tvxk5'
   ];
 
-  // useEffect(() => {
-  //   // updateBalance();
-  //   const setUpdate = () => {
-  //     const timer = setInterval(async () => {
-  //       update();
-  //     }, 5000);
-  //     return () => {
-  //       clearInterval(timer);
-  //     };
-  //   };
-  //   setUpdate();
-  // }, []);
+  useEffect(() => {
+    // updateBalance();
+
+      const timer = setInterval(async () => {
+        update();
+      }, 5000);
+      return () => {
+        clearInterval(timer);
+      };
+  }, []);
 
   const whiteAmount = 3,
     publicAmount = 3;
 
   const update = async () => {
-    const totalWhitelistSale = await getTotalSale(4, 1);
+    const totalWhitelistSale = await getTotalSale(6, 1);
     console.log('totalSale', totalWhitelistSale.data);
     setWhitelistFundraisers(totalWhitelistSale.data.totalUsers);
     setWhitelistActualAmount(totalWhitelistSale.data.totalSale);
-    const totalPublicSale = await getTotalSale(4, 2);
+    const totalPublicSale = await getTotalSale(6, 2);
     console.log('totalPublicSale', totalPublicSale.data);
     setFundraisers(totalPublicSale.data.totalUsers);
     setActualAmount(totalPublicSale.data.totalSale);
@@ -183,25 +181,25 @@ const LaunchpadDetails = () => {
       //   "bc1pmhsfvsy0s5antfw32hmav7vsa34rxvsxel3u5w42mh5ate9rdnhsqampvf";
       const balance = await window.unisat.getBalance();
       setBalance(utils.formatUnits(String(balance.total), 8).toString());
-      const whitelistTotalSale = await getAmountByAddress(accounts[0], 1, 1);
+      const whitelistTotalSale = await getAmountByAddress(accounts[0], 6, 1);
       console.log('whitelistTotalSale', whitelistTotalSale);
       setMyWhitelistBtc(whitelistTotalSale.data.totalBuy);
       console.log('totalWhitelistSale', totalWhitelistSale.data.totalBuy);
       const WhitelistObtained =
         totalWhitelistSale.data.totalSale * 1 < whiteAmount
-          ? (whitelistTotalSale.data.totalBuy * 1) / 0.0000000034
+          ? (whitelistTotalSale.data.totalBuy * 1) / 0.0000000571428
           : (whitelistTotalSale.data.totalBuy * 1) /
             ((totalWhitelistSale.data.totalSale * 1) / whiteAmount) /
-            0.0000000034;
+            0.0000000571428;
       setWhitelistObtained(WhitelistObtained);
 
-      const publicTotalSale = await getAmountByAddress(accounts[0], 4, 2);
+      const publicTotalSale = await getAmountByAddress(accounts[0], 6, 2);
       setMyPublicBtc(publicTotalSale.data.totalBuy);
       console.log('publicTotalSale', publicTotalSale);
       const publicObtained =
         totalPublicSale.data.totalSale * 1 < publicAmount
-          ? (publicTotalSale.data.totalBuy * 1) / 0.0000000034
-          : (publicTotalSale.data.totalBuy * 1) / ((totalPublicSale.data.totalSale * 1) / publicAmount) / 0.0000000034;
+          ? (publicTotalSale.data.totalBuy * 1) / 0.0000000571428
+          : (publicTotalSale.data.totalBuy * 1) / ((totalPublicSale.data.totalSale * 1) / publicAmount) / 0.0000000571428;
       console.log('publicTotalSale', publicTotalSale.data.totalBuy, publicTotalSale.data.totalSale);
 
       setObtained(publicObtained);
@@ -211,7 +209,7 @@ const LaunchpadDetails = () => {
   };
   const setMax = async (value: number, type: number) => {
     let accounts = await window.unisat.getAccounts();
-    const totalSale = await getAmountByAddress(accounts[0], 4, type);
+    const totalSale = await getAmountByAddress(accounts[0], 6, type);
     console.log('totalSale11', totalSale.data.totalBuy);
     if (type == 1) {
       setWhitelistInput(
@@ -239,31 +237,36 @@ const LaunchpadDetails = () => {
       setBtnEnable(false);
     }, 1000);
 
-    // if (new Date().getTime() < 1687698000 * 1000 && type == 1) {
-    //   toast.warning("The Whitelist sale round has yet to begin", toastConfig);
-    //   return;
-    // }
-    if (new Date().getTime() > 1000 && type == 1) {
-      toast.warning('The Whitelist sale round has yet to begin', toastConfig);
+    if(whitelistActualAmount * 1 >= 3){
+      toast.warning("The Whitelist have already recruited.", toastConfig);
       return;
     }
 
-    if (new Date().getTime() > 1687752000 * 1000 + 12 * 60 * 60 * 1000 && type == 1) {
+    if (new Date().getTime() < 1700830800 * 1000 && type == 1) {
+      toast.warning("The Whitelist sale round has yet to begin", toastConfig);
+      return;
+    }
+    // if (new Date().getTime() > 1000 && type == 1) {
+    //   toast.warning('The Whitelist sale round has yet to begin', toastConfig);
+    //   return;
+    // }
+
+    if (new Date().getTime() > 1700830800 * 1000 + 27 * 60 * 60 * 1000 && type == 1) {
       toast.warning('The Whitelist sale round has end', toastConfig);
       return;
     }
 
-    // if (new Date().getTime() < 1687762800 * 1000 && type == 2) {
-    //   toast.warning("The Public sale round has yet to begin", toastConfig);
-    //   return;
-    // }
-
-    if (new Date().getTime() > 1000 && type == 2) {
-      toast.warning('The Public sale round has yet to begin', toastConfig);
+    if (new Date().getTime() < 1700834400 * 1000 && type == 2) {
+      toast.warning("The Public sale round has yet to begin", toastConfig);
       return;
     }
 
-    if (new Date().getTime() > 1687870800 * 1000 + 12 * 60 * 60 * 1000 && type == 2) {
+    // if (new Date().getTime() > 1000 && type == 2) {
+    //   toast.warning('The Public sale round has yet to begin', toastConfig);
+    //   return;
+    // }
+
+    if (new Date().getTime() > 1700834400 * 1000 + 26 * 60 * 60 * 1000 && type == 2) {
       toast.warning('The Whitelist sale round has end', toastConfig);
       return;
     }
@@ -275,13 +278,13 @@ const LaunchpadDetails = () => {
 
     let accounts = await window.unisat.requestAccounts();
 
-    const whitelistInputSale = await getAmountByAddress(accounts[0], 4, 1);
+    const whitelistInputSale = await getAmountByAddress(accounts[0], 6, 1);
     if (type == 1 && whitelistInputSale.data.totalBuy * 1 + whitelistInput * 1 > 0.08) {
       toast.warning('Your contribution amount cannot exceed 0.08', toastConfig);
       return;
     }
 
-    const publicInputSale = await getAmountByAddress(accounts[0], 4, 2);
+    const publicInputSale = await getAmountByAddress(accounts[0], 6, 2);
     console.log('publicInputSale', publicInputSale);
     if (type == 2 && publicInputSale.data.totalBuy * 1 + publicInput * 1 > 0.5) {
       toast.warning('Your contribution amount cannot exceed 0.5', toastConfig);
@@ -304,18 +307,18 @@ const LaunchpadDetails = () => {
     // let txid =
     //     "a7a83f036208bebf6577a2c76d9b49ab6fe03e6944bcfe066e8c0d35c20aa414";
     if (type == 1) {
-      let inputValue = utils.parseUnits(String(whitelistInput), 8).add('80000').toString() * 1;
+      let inputValue = utils.parseUnits(String(whitelistInput), 8).add('68000').toString() * 1;
       let txid = await window.unisat.sendBitcoin(wallet[type], inputValue);
       if (txid) {
-        const res = await mintSale(accounts[0], txid, type, whitelistInput, 4);
+        const res = await mintSale(accounts[0], txid, type, whitelistInput, 6);
         console.log('res', res);
         toast.success('Payment success', toastConfig);
       }
     } else if (type == 2) {
-      let inputValue = utils.parseUnits(String(publicInput), 8).add('80000').toString() * 1;
+      let inputValue = utils.parseUnits(String(publicInput), 8).add('68000').toString() * 1;
       let txid = await window.unisat.sendBitcoin(wallet[type], inputValue);
       if (txid) {
-        const res = await mintSale(accounts[0], txid, type, publicInput, 4);
+        const res = await mintSale(accounts[0], txid, type, publicInput, 6);
         console.log('res', res);
         toast.success('Payment success', toastConfig);
       }
