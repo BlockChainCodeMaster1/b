@@ -44,6 +44,7 @@ PROJECT_IDO.belongsTo(PROJECT, {
 });
 
 const WHITELIST = [
+  "bc1pnstt80m6mdhj2nfm6qcrl9czeq8rj5h9k4skwecg52u0kpdrqq8s7h22jh",
   "bc1ps0f06etqpyt37tkek72qehecxhaj7qlr5u5l70rrnaug3ncht8gss4wfmv",
 "bc1q24n29wy5x0n6chzx9ekrd9gc5s56sx7hadd2ut",
 "bc1pzepgx6hhaj00z6z00l38jez3zzn3vhls7trhszurvzpzurkwp4gqtcptwr",
