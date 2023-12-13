@@ -79,7 +79,7 @@ const LaunchpadDetails = () => {
         },
         data: [
           { value: 2100000, name: 'IDO' },
-          { value: 18900000, name: 'OTHER' },
+          { value: 18900000, name: '' },
         ]
       }
     ]
@@ -772,21 +772,19 @@ const LaunchpadDetails = () => {
               <div className={styles.item}>
                 <div className={styles.title}>Introduction of project advantages</div>
                 <p>
-                1、Multi-Protocol Support: It integrates various Bitcoin protocols, enhancing accessibility and vastly enriching users&apos; trading options.
+                1、Multi-Protocol Support: It integrates various Bitcoin protocols, enhancing accessibility and vastly enriching users&apos; trading options.<br/>
 
-2、Advanced Trading Engine: The platform utilizes Automated Market Maker (AMM) models and liquidity pools, significantly increasing the efficiency and liquidity of asset trades.
+2、Advanced Trading Engine: The platform utilizes Automated Market Maker (AMM) models and liquidity pools, significantly increasing the efficiency and liquidity of asset trades.<br/>
 
-3、High-Performance Blockchain Synchronization and Processing Engine: Designed for real-time 4、tracking and processing of transactions on the Bitcoin network, it ensures users receive up-to-date block information and transaction data.
+3、High-Performance Blockchain Synchronization and Processing Engine: Designed for real-time 4、tracking and processing of transactions on the Bitcoin network, it ensures users receive up-to-date block information and transaction data.<br/>
 
-4、Advanced Smart Contract Platform: This feature allows users and developers to create, deploy, and execute complex transaction logic, thus expanding the functionality beyond traditional Bitcoin transactions.
+4、Advanced Smart Contract Platform: This feature allows users and developers to create, deploy, and execute complex transaction logic, thus expanding the functionality beyond traditional Bitcoin transactions.<br/>
 
-5、User-Friendly Interface: SatoshiFlow prioritizes a user-friendly and intuitive trading experience, catering to the needs of diverse traders.
+5、User-Friendly Interface: SatoshiFlow prioritizes a user-friendly and intuitive trading experience, catering to the needs of diverse traders.<br/>
 
 6、Continuous Innovation and Technological Iteration: The platform is committed to ongoing technological advancements, maintaining a competitive edge in the rapidly evolving blockchain and cryptocurrency market.
 
                 </p>
-                <div className={styles.title}>IDO - 10%</div>
-                <div className={styles.title}>Other - 90%</div>
               </div>
             </div>
             <div className={styles.other}>
