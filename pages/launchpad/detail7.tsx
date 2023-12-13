@@ -355,7 +355,7 @@ const LaunchpadDetails = () => {
                 <div className={styles.name}>Cloris Chen</div>
               </div> */}
               <p className={styles.intro}>
-              "Pingme" emerges as a cutting-edge social Dapp, revolutionizing how you cultivate meaningful connections through on-chain credentials. Step into a new era of social interaction, where ambiguity about others' feelings becomes a thing of the past. Pingme delivers clarity, eliminates misunderstandings, and simplifies the joy of socializing.
+              &quot;Pingme&quot; emerges as a cutting-edge social Dapp, revolutionizing how you cultivate meaningful connections through on-chain credentials. Step into a new era of social interaction, where ambiguity about others&apos; feelings becomes a thing of the past. Pingme delivers clarity, eliminates misunderstandings, and simplifies the joy of socializing.
               </p>
               <div className={styles.contact}>
                 <Link href="https://www.pingme.love" passHref>
