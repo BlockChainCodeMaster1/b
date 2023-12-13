@@ -26,6 +26,9 @@
       background-color: #fff;
       padding: 30px;
       border-radius: 20px;
+      &.op{
+        opacity: 0.5;
+      }
       &.grayback {
         background-color: rgba(227, 227, 227, 0.5);
       }
@@ -97,6 +100,16 @@
         margin-right: 20px;
         background: #fff url(../public/launchpad/satoshiflow.jpeg) no-repeat
           center/auto 100%;
+      }
+      .banner7 {
+        width: 552px;
+        height: 340px;
+        flex-shrink: 0;
+        background-color: #cfcfcf;
+        border: 1px solid #cfcfcf;
+        border-radius: 20px;
+        margin-right: 20px;
+        background: #fff url(../public/launchpad/pingme.png) no-repeat center/auto 100%;
       }
       .info {
         display: flex;

@@ -43,6 +43,7 @@ import telegram from "../../public/launchpad/telegram.png";
 import discord from "../../public/launchpad/discord.png";
 import medium from "../../public/launchpad/meta.png";
 import satoshiflow from "../../public/launchpad/satoshiflow.jpeg";
+import pingme from "../../public/launchpad/pingme.png";
 import styles from "../../styles/launchpad.module.scss";
 import "animate.css";
 import axios from "axios";
@@ -53,6 +54,19 @@ const Launchpad = () => {
   const { t } = useTranslation("common");
   const router = useRouter();
   const projects = [
+    {
+      id: 15,
+      title: "Pingme",
+      desc: `"Pingme" emerges as a cutting-edge social Dapp, revolutionizing how you cultivate meaningful connections through on-chain credentials. Step into a new era of social interaction, where ambiguity about others' feelings becomes a thing of the past. Pingme delivers clarity, eliminates misunderstandings, and simplifies the joy of socializing.`,
+      banner: pingme,
+      avatar: pingme,
+      hot: true,
+      details: "/launchpad/detail7",
+      twitter: "https://twitter.com/_SatoshiFlow",
+      medium: "https://medium.com/@_SatoshiFlow",
+      telegram: null,
+      discord: null,
+    },
     {
       id: 14,
       title: "satoshiFlow",
@@ -425,7 +439,7 @@ const Launchpad = () => {
           <div className={styles.current}>
             <div className={styles.banner}></div>
             {projectList.map((item,index) => {
-              if (item.id == 14) {
+              if (item.id == 15) {
                 console.log("item", item);
                 return (
                   <div className={styles.curinfo} key={index}>
@@ -480,7 +494,7 @@ const Launchpad = () => {
                           `${value < 10 ? `0${value}` : value} `
                         }
                         initialTime={
-                          new Date(1700830800 * 1000).getTime() -
+                          new Date(1702814400 * 1000).getTime() -
                           new Date().getTime()
                         }
                         lastUnit="d"
@@ -535,7 +549,7 @@ const Launchpad = () => {
          
           <div className={styles.list}>
             {projectList.map((item) => {
-              if (item.id != 14) {
+              if (item.id != 15) {
                 return ListItem(item);
               }
             })}
